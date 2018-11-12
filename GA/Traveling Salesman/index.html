@@ -1,0 +1,91 @@
+<!doctype HTML>
+
+<html>
+    <head>
+        <style>
+            body {
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+            canvas {
+                border:1px solid black;
+                float:left;
+            }
+            #container {
+                
+            }
+            input {
+                text-align: center;
+            }
+            table {
+                float:left
+            }
+        </style>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+          google.charts.load('current', {'packages':['corechart']});
+        </script>
+    
+    
+    </head>
+    <script src="logic.js"></script>
+    <script src="genetics.js"></script>
+    <Script src="init.js"></Script>
+    <body>
+        <div id="container">
+            <div id="canvas-wrapper">
+                    
+            </div>
+            
+            <div id="curve_chart" style="width: 900px; height: 500px; float: left;"></div>
+        </div>
+        <table>
+                <tr>
+                    <th>
+                        Node Count
+                    </th>
+                    <th>
+                        Population Size
+                    </th>
+                    <th>
+                        Mutation Probability
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" id="nodecount" value="100"/>
+                    </td>
+                    <td>
+                        <input type="text" id="populationcount" value="50"/>
+                    </td>
+                    <td>
+                        <input type="text" id="mutationprobability" value="0.001"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">
+                        <button onclick="Init();" style="width:100%; height:50px;" >
+                            Go
+                        </button>
+                    </td>
+                    <td style="text-align: center;">
+                        <button onclick="UpdateMutation();"; style="width:100%; height:50px; display: none;">
+                            Update mutation probability
+                        </button>
+                    </td>
+                    <td style="text-align: center;">
+                        <button onclick="KeepLearning()" style="height:50px; width:100%">Next Generation</button>
+                    </td>
+                </tr>
+            </table>
+    </body>
+    <script>
+        var canvas = document.createElement("CANVAS");
+        canvas.style.width = SCREEN_WIDTH + "px";
+        canvas.style.height = SCREEN_HEIGHT + "px";
+        canvas.width = SCREEN_WIDTH;
+        canvas.height = SCREEN_HEIGHT;
+        canvas.id = "canvas";
+        var context = canvas.getContext("2d");
+        document.getElementById("canvas-wrapper").appendChild(canvas);
+    </script>
+</html>
