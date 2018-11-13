@@ -19,6 +19,21 @@ function CreateRandomNode()
     return [x, y];
 }
 
+function CreateRandomPath()
+{
+    var allIndexes = [];
+    for (var ii = 0; ii < nodes.length; ii++) {
+        allIndexes[ii] = ii;
+    }
+    var newMember = [];
+    while (allIndexes.length != 0) {
+        var randomIndex = randInt(0, allIndexes.length - 1);
+        newMember[newMember.length] = allIndexes[randomIndex];
+        allIndexes.splice(randomIndex, 1);
+    }
+    return newMember;
+}
+
 function GetDistance(node1, node2)
 {
     var xDif = node1[0] - node2[0];
